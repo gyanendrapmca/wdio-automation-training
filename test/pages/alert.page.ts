@@ -15,11 +15,10 @@ class AlertPage extends Page {
     ///////////////////////////////////////////////////////////////////////////
 
     public open() {
-        return super.open('/javascript_alerts');
+        return super.open('javascript_alerts');
     }
 
     public async verifyHeading() {
-        await this.heading.waitForDisplayed({timeout: 5000});
         expect(await this.heading.isDisplayed()).toBe(true);
     }
 
@@ -29,12 +28,10 @@ class AlertPage extends Page {
     }
 
     public async clickConfirm() {
-        await this.jsConfirmButton.waitForClickable({timeout: 5000});
         await this.jsConfirmButton.click();
     }
 
     public async clickJsPrompt() {
-        await this.jsPromptButton.waitForClickable({timeout: 5000});
         await this.jsPromptButton.click();
     }
 

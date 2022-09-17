@@ -1,5 +1,6 @@
 import AllureReporter from '@wdio/allure-reporter';
 import type { Options } from '@wdio/types';
+import { data } from '../env/data';
 // const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
 
 export const config: Options.Testrunner = {
@@ -11,7 +12,7 @@ export const config: Options.Testrunner = {
         autoCompile: true,
         tsNodeOpts: {
             transpileOnly: true,
-            project: 'test/tsconfig.json'
+            project: 'tsconfig.json'
         }
     },
     specs: [
@@ -20,12 +21,7 @@ export const config: Options.Testrunner = {
     exclude: [
         // 'path/to/excluded/files'
     ],
-    maxInstances: 10,
-    capabilities: [{
-        maxInstances: 3,
-        browserName: 'chrome',
-        acceptInsecureCerts: true
-    }],
+    capabilities: [],
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'info',
     // If you only want to run your tests until a specific amount of tests have failed use
@@ -36,7 +32,7 @@ export const config: Options.Testrunner = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://www.google.com/',
+    baseUrl: data.baseUrl,
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -47,14 +43,6 @@ export const config: Options.Testrunner = {
     //
     // Default request retries count
     connectionRetryCount: 3,
-    //
-    // Test runner services
-    // Services take over a specific job you don't want to take care of. They enhance
-    // your test setup with almost no effort. Unlike plugins, they don't add new
-    // commands. Instead, they hook themselves up into the test process.
-    // @ts-ignore
-    // services: [['chromedriver'], [TimelineService]],
-    services: [['chromedriver']],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -81,7 +69,7 @@ export const config: Options.Testrunner = {
     //     fileName: 'testresult.html'
     // }]],
     reporters: ['spec', ['allure', {
-        outputDir: 'output-results',
+        outputDir: 'reports/allure-results',
         disableWebdriverStepsReporting: false,
         disableWebdriverScreenshotsReporting: false,
     }]],
@@ -165,9 +153,10 @@ export const config: Options.Testrunner = {
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
     beforeTest: function (test, context) {
-        AllureReporter.addEnvironment("ENV", "QA");
-        AllureReporter.addEnvironment("BROWSER", 'Chrome');
-        AllureReporter.addEnvironment("Platform", 'Windows32');
+        AllureReporter.addEnvironment("ENV", this.baseUrl);
+        AllureReporter.addEnvironment("Platform", process.platform);
+        // @ts-ignore
+        AllureReporter.addEnvironment("BROWSER", browser.capabilities.browserName);
     },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling

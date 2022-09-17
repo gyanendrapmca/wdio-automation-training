@@ -1,6 +1,6 @@
-import checkboxPage from "../pageobjects/checkbox-page";
+import checkboxPage from "../pages/checkbox-page";
 
-describe("My Second Demo Script", async function () {
+describe("Assertion Test Suite", async function () {
     it("Division", async function () {
         let result = 10/2;
         expect(result).toEqual(5);
@@ -31,7 +31,4 @@ describe("My Second Demo Script", async function () {
         expect(result).toBe(true);
     })
 
-    it("Checkbox Test Case", async function() {
-        await checkboxPage.open();
-    })
 })
