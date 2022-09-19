@@ -2,8 +2,7 @@
     "name": "wdio-automation-training",
     "version": "1.0.0",
     "description": "Wdio, TypeScript, Mocha, Chai, Allure Report",
-    "main": "index.js",
-    "author": "ACA Group",
+    "author": "Gyanendra Pandey",
     "license": "MIT",
     "devDependencies": {
         "@wdio/allure-reporter": "^7.24.0",
@@ -26,4 +25,3 @@
         "report": "allure generate reports/allure-results --clean && allure open"
     }
 }
-timeli
