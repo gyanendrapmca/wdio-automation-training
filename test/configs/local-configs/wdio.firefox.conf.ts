@@ -1,4 +1,4 @@
-import { config as sharedConfig } from './wdio.shared.conf';
+import { config as sharedConfig } from '../wdio.shared.conf';
 
 export const config: WebdriverIO.Config = {
     ...sharedConfig,
@@ -6,6 +6,6 @@ export const config: WebdriverIO.Config = {
         capabilities: [{
             browserName: 'firefox'
         }],
-        services: ['geckodriver']
+        services: ['selenium-standalone']
     }
 }
