@@ -9,6 +9,11 @@ export const config: WebdriverIO.Config = {
         maxInstances: 3,
         browserName: "chrome",
         acceptInsecureCerts: true,
+        'goog:chromeOptions': {
+          args: [
+            '--headless'
+          ]
+        }
       },
     ],
   },
