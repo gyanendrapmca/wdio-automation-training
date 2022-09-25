@@ -1,4 +1,5 @@
 import { ChainablePromiseElement } from 'webdriverio';
+import { logs } from '../utils/logs';
 
 import Page from './page';
 
@@ -27,8 +28,11 @@ class LoginPage extends Page {
      */
     public async login (username: string, password: string) {
         await this.inputUsername.setValue(username);
+        logs(`Entered username: ${username}`);
         await this.inputPassword.setValue(password);
+        logs(`Entered password: ${password}`);
         await this.btnSubmit.click();
+        logs(`Clicked on submit button!!!`);
     }
 
     /**
