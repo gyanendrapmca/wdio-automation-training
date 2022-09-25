@@ -1,4 +1,5 @@
 import { data } from "../env/data";
+import { logs } from "../utils/logs";
 
 /**
 * main page object containing all methods, selectors and functionality
@@ -10,6 +11,7 @@ export default class Page {
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     public open (path: string) {
-        return browser.url(`${data.baseUrl}${path}`)
+        logs(`Navigated url: ${data.baseUrl}${path}`);
+        return browser.url(`${data.baseUrl}${path}`);
     }
 }

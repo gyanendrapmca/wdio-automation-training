@@ -3,7 +3,7 @@ import Page from "./page";
 class checkbox extends Page {
 
     public open() {
-        return super.open('/checkboxes');
+        return super.open('checkboxes');
     }
 
 }

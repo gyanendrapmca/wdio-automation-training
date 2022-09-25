@@ -1,5 +1,6 @@
 import Page from "./page";
 import * as EC from 'wdio-wait-for';
+import assertion from "../utils/assertion";
 
 class AlertPage extends Page {
 
@@ -37,12 +38,12 @@ class AlertPage extends Page {
 
     public async verifyResult(message: string) {
         await browser.waitUntil(async()=> await this.result.getText()===message, {timeout: 15000});
-        expect(await this.result.getText()).toEqual(message);
+        assertion.toEqual(await this.result.getText(), message);
     }
 
     public async verifyThreeButtonIsDisplaying() {
         await browser.waitUntil(EC.numberOfElementsToBe(this.button, 3), {timeout: 10000});
-        expect(await this.button.length).toEqual(3);
+        assertion.toEqual(await this.button.length, 3);
     }
 }
 
