@@ -1,4 +1,4 @@
-name: Wdio-
+name: Wdio-Run
 on:
   push:
     branches: 
