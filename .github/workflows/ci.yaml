@@ -2,7 +2,7 @@ name: Wdio-Run
 on:
   push:
     branches: 
-    - main
+    - master
 
 jobs:
   build:
