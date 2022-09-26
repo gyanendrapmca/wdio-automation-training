@@ -1,4 +1,4 @@
-name: Wdio-Run
+name: Wdio-Run-Chrome Result
 on:
   push:
     branches: 
