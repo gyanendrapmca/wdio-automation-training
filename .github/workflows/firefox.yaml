@@ -1,0 +1,25 @@
+name: Wdio-Run-Firefox Result
+on:
+  push:
+    branches: 
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+        - name: 'wdio-chrome-test'
+          uses: actions/checkout@master
+        - uses: actions/setup-node@v1
+          with:
+            node-version: 18
+        - name: Install Dependencies
+          run: npm install
+        - name: WDIO TESTS
+          continue-on-error: true
+          run: npm run wdio:firefox
+        - uses: actions/upload-artifact@v1
+          if: failure()
+          with:
+            name: logs
+            path: logs
