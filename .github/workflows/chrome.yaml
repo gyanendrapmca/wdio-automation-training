@@ -1,6 +1,6 @@
 name: Wdio-Run-Chrome Result
 on:
-  push:
+  workflow_dispatch:
     branches: 
     - master
 
