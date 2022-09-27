@@ -4,7 +4,10 @@ export const config: WebdriverIO.Config = {
     ...sharedConfig,
     ...{
         capabilities: [{
-            browserName: 'MicrosoftEdge'
+            browserName: 'MicrosoftEdge',
+            "ms:edgeOptions": {
+                args: ["--headless"]
+            }
         }],
         services: ['selenium-standalone']
     }
