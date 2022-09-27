@@ -1,6 +1,6 @@
-name: Wdio-Run-Firefox Result
+name: Wdio-Run-Edge Result
 on:
-  workflow_dispatch:
+  push:
     branches: 
     - master
 
@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - name: 'wdio-firefox-test'
+        - name: 'wdio-edge-test'
           uses: actions/checkout@master
         - uses: actions/setup-node@v1
           with:
@@ -17,7 +17,7 @@ jobs:
           run: npm install
         - name: WDIO TESTS
           continue-on-error: true
-          run: npm run wdio:firefox
+          run: npm run wdio:edge
         - uses: actions/upload-artifact@v1
           if: failure()
           with:
