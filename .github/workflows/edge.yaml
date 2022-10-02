@@ -1,5 +1,8 @@
 name: Wdio-Run-Edge Result
 on:
+  workflow_dispatch:
+    branches: 
+    - master
   push:
     branches: 
     - master
