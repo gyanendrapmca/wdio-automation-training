@@ -9,3 +9,5 @@
 ## Reporting - Allure Report
 
 ## Support - Cross Browser (Chrome, Firefox, Edge)
+
+## Integration with GitHub Actions 
