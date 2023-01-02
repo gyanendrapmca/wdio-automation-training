@@ -2,7 +2,7 @@ name: Wdio-Run-Chrome Result
 on:
   workflow_dispatch:
     branches: 
-    - *
+    - upgrade_wdio_v8
   push:
     branches: 
     - master
