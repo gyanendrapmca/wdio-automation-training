@@ -16,5 +16,10 @@ export const config: WebdriverIO.Config = {
         }
       },
     ],
+
+    suites: {
+      group1: ["./test/specs/assert.spec.ts"],
+      group2: ["./test/specs/login.spec.ts"],
+    },
   },
 };
