@@ -1,12 +1,14 @@
 {
     "compilerOptions": {
         "moduleResolution": "node",
+        "target": "ESNext",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
         "types": [
             "node",
             "@wdio/globals/types",
             "@wdio/mocha-framework",
             "expect-webdriverio"
-        ],
-        "target": "es2019"
+        ]
     }
 }
