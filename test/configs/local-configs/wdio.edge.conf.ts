@@ -17,6 +17,5 @@ export const config: Options.Testrunner = {
         },
       },
     ],
-    services: ["selenium-standalone"],
   },
 };

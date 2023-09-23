@@ -9,7 +9,7 @@ export const config: Options.Testrunner = {
       group1: ["../../specs/assert.spec.ts"],
       group2: ["../../specs/login.spec.ts"],
     },
-    services: ["chromedriver"],
+
     capabilities: [
       {
         maxInstances: 3,
@@ -20,7 +20,7 @@ export const config: Options.Testrunner = {
             '--headless'
           ]
         },
-      },
+      }
     ],
 
   },

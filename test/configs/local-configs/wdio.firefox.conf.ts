@@ -9,7 +9,6 @@ export const config: Options.Testrunner = {
       group1: ["../../specs/assert.spec.ts"],
       group2: ["../../specs/login.spec.ts"],
     },
-    services: ["selenium-standalone"],
     capabilities: [
       {
         browserName: "firefox",
