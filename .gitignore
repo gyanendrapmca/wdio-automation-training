@@ -2,3 +2,4 @@ yarn.lock
 node_modules/
 reports/
 allure-report/
+package-lock.json
