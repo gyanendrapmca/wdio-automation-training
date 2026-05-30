@@ -1,20 +1,27 @@
 import { config as sharedConfig } from "../wdio.shared.conf";
+import type { Options } from '@wdio/types'
 
-export const config: WebdriverIO.Config = {
+export const config: Options.Testrunner = {
   ...sharedConfig,
   ...{
-    services: ["chromedriver"],
+    specs: ["../../specs/**/*.ts"],
+    suites: {
+      group1: ["../../specs/assert.spec.ts"],
+      group2: ["../../specs/login.spec.ts"],
+    },
+
     capabilities: [
       {
         maxInstances: 3,
         browserName: "chrome",
         acceptInsecureCerts: true,
-        'goog:chromeOptions': {
+        "goog:chromeOptions": {
           args: [
             '--headless'
           ]
-        }
-      },
+        },
+      }
     ],
+
   },
 };

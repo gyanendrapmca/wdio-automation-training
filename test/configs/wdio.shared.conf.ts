@@ -1,5 +1,5 @@
 import AllureReporter from '@wdio/allure-reporter';
-import type { Options } from '@wdio/types';
+import type { Options } from '@wdio/types'
 import { data } from '../env/data';
 // const { TimelineService } = require('wdio-timeline-reporter/timeline-service');
 
@@ -16,7 +16,7 @@ export const config: Options.Testrunner = {
         }
     },
     specs: [
-        './test/specs/**/*.ts'
+        '../specs/**/*.ts'
     ],
     exclude: [
         // 'path/to/excluded/files'

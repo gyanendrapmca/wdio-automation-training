@@ -1,46 +1,41 @@
-import { ChainablePromiseElement } from 'webdriverio';
-import { logs } from '../utils/logs';
+import { logs } from "../utils/logs";
 
-import Page from './page';
+import Page from "./page";
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    public get inputUsername () {
-        return $('#username');
-    }
+  
+  /////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////// define selectors using getter methods //////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////
 
-    public get inputPassword () {
-        return $('#password');
-    }
+  private get inputUsername() { return $("#username") }
 
-    public get btnSubmit () {
-        return $('button[type="submit"]');
-    }
+  private get inputPassword() { return $("#password") }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    public async login (username: string, password: string) {
-        await this.inputUsername.setValue(username);
-        logs(`Entered username: ${username}`);
-        await this.inputPassword.setValue(password);
-        logs(`Entered password: ${password}`);
-        await this.btnSubmit.click();
-        logs(`Clicked on submit button!!!`);
-    }
+  private get btnSubmit() { return $('button[type="submit"]') }
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    public open () {
-        return super.open('login');
-    }
+  /////////////////////////////////////////////////////////////////////////////////////////
+  //////////////// a method to encapsule automation code to interact with the page ////////
+  /////////////////////////////////////////////////////////////////////////////////////////
+
+  /**
+   * Login to application
+   * @param username 
+   * @param password 
+   */
+  public async login(username: string, password: string) {
+    await this.inputUsername.setValue(username);
+    logs(`Entered username: ${username}`);
+    await this.inputPassword.setValue(password);
+    logs(`Entered password: ${password}`);
+    await this.btnSubmit.click();
+    logs(`Clicked on submit button!!!`);
+  }
+
+  // overwrite specific options to adapt it to page object
+  public open() {
+    return super.open("login");
+  }
 }
 
 export default new LoginPage();

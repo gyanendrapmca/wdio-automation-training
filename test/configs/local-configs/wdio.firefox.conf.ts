@@ -1,8 +1,14 @@
 import { config as sharedConfig } from "../wdio.shared.conf";
+import { Options } from '@wdio/types';
 
-export const config: WebdriverIO.Config = {
+export const config: Options.Testrunner = {
   ...sharedConfig,
   ...{
+    specs: ["../../specs/**/*.ts"],
+    suites: {
+      group1: ["../../specs/assert.spec.ts"],
+      group2: ["../../specs/login.spec.ts"],
+    },
     capabilities: [
       {
         browserName: "firefox",
@@ -11,6 +17,5 @@ export const config: WebdriverIO.Config = {
         },
       },
     ],
-    services: ["selenium-standalone"],
   },
 };
